@@ -13,33 +13,7 @@
 
 <body>
 <div id="wrapper">
-    <header class="header">
-        <div class="logo">
-            <h1>created-by-pavel</h1>
-        </div>
-        <nav class="menu">
-            <menu>
-                <li class="nav-item"><a href="https://crbpavel.onrender.com/index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item"><a href="https://crbpavel.onrender.com/store.html" class="nav-link">Store</a>
-                </li>
-                <li class="nav-item"><a href="https://crbpavel.onrender.com/about.html" class="nav-link">About
-                    us</a></li>
-                <li class="nav-item"><a href="https://crbpavel.onrender.com/contact.html"
-                                        class="nav-link">Contacts</a></li>
-                <li class="nav-item"><a href="https://crbpavel.onrender.com/cart.html" class="nav-link">Cart</a>
-                </li>
-                <li class="nav-item"><a href="https://crbpavel.onrender.com/addProduct.html"
-                                        class="nav-link">Add product</a></li>
-            </menu>
-        </nav>
-        <div class="toggle-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </header>
-    <script type="text/javascript" src="js/menu.js"></script>
+    {{> header}}
 
     <main class="main">
         <div id="store-wrapper">
@@ -73,20 +47,7 @@
         </div>
     </main>
     <script type="text/javascript" src="js/coordinates.js"></script>
-
-    <footer class="footer">
-        <nav class="soc-nets">
-            <ul>
-                <li><a href="#"><img src="img/insta.jpg"></a></li>
-                <li><a href="#"><img src="img/facebook.jpg"></a></li>
-                <li><a href="#"><img src="img/vk.jpg"></a></li>
-                <li><a href="#"><img src="img/linkedIn.jpg"></a></li>
-                <li><a href="https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd?si=cfaa096bd9df439f"><img
-                        src="img/spotify.jpg"></a></li>
-                <li><a href="https://www.youtube.com/watch?v=G1IbRujko-A"><img src="img/youtube.jpg"></a></li>
-            </ul>
-        </nav>
-    </footer>
+    {{> footer}}
 </div>
 </body>
 </html>
