@@ -14,7 +14,7 @@
                               class="nav-link">Contacts</a></li>
       <li class="nav-item"><a href="https://crbpavel.onrender.com/addProduct"
                               class="nav-link">Add product</a></li>
-    {{#if login.status}}
+    {{#if loginStatus.isLogged}}
       <li class="nav-item"><a href="https://crbpavel.onrender.com/profile" class="nav-link"> my account </a></li>
     {{else}}
       <li class="nav-item"><a href="https://crbpavel.onrender.com/login" class="nav-link">login</a></li>

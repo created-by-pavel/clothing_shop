@@ -1,7 +1,10 @@
-import { Controller, Get, Render, Res } from '@nestjs/common';
+import { Controller, Get, Render, UseInterceptors } from '@nestjs/common';
+import { ResponseTimeInterceptor } from './interceptor';
+
 import { Response } from 'express';
 import { AppService } from './app.service';
 
+@UseInterceptors(ResponseTimeInterceptor)
 @Controller()
 export class AppController {
   @Get()
