@@ -32,9 +32,10 @@ model Order {
 
 model Promocode {
   id         Int        @id @default(autoincrement())
-  code      String      @unique
+  code       String      @unique
+  sale       Int
   expiredDate DateTime?
-  order      Order      @relation(fields: [id], references: [id])
+  order       Order      @relation(fields: [id], references: [id])
 }
 
 model Product {
