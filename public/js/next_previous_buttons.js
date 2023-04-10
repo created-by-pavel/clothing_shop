@@ -16,5 +16,5 @@ nextButton.addEventListener('click', () => {
 });
 
 function redirect(page) {
-  window.location.href = `/products/page/${page}`;
+  window.location.href = `https://crbpavel.onrender.com/products/page/${page}`;
 }
