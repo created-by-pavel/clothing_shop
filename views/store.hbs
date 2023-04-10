@@ -17,36 +17,25 @@
 
     <main class="main">
         <div id="store-wrapper">
-            <div class="product"><a href="https://crbpavel.onrender.com/item"><img
-                    src="img/jacket.jpg"></a></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
-            <div class="product"><img src="img/jacket.jpg"></div>
+        {{#each viewData}}
+          <div class="product">
+            <a href="http://localhost:81/products/{{id}}"><img src="{{images.[0].imageUrl}}" alt="{{name}} Image"></a>
+          </div>
+        {{/each}}
         </div>
-
         <div class="coords">
             <p>GET.COORDINATES</p>
             <p>GET.ENJOYED</p>
             <span class="x">0</span> / <span class="y">0</span><br>
             <p>\</p>
         </div>
+      <div id="page-buttons">
+        <button id="previous">&lt</button>
+        <button id="next">&gt</button>
+      </div>
     </main>
     <script type="text/javascript" src="js/coordinates.js"></script>
+    <script src="js/next_previous_buttons.js"></script>
     {{> footer}}
 </div>
 </body>

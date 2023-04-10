@@ -1,4 +1,4 @@
-import { Controller, Get, Render, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, Post, Render, Res, UseInterceptors } from "@nestjs/common";
 import { ResponseTimeInterceptor } from './interceptor';
 
 import { Response } from 'express';
@@ -7,21 +7,10 @@ import { AppService } from './app.service';
 @UseInterceptors(ResponseTimeInterceptor)
 @Controller()
 export class AppController {
+  constructor(private readonly appService: AppService) {}
   @Get()
   @Render('index')
   root() {
-    return { message: 'Hello world' };
-  }
-
-  @Get('/store')
-  @Render(`store`)
-  getStorePage() {
-    return { message: 'Hello world' };
-  }
-
-  @Get('/profile')
-  @Render(`profile`)
-  getProfilePage() {
     return { message: 'Hello world' };
   }
 
@@ -31,12 +20,7 @@ export class AppController {
     return { message: 'Hello world' };
   }
 
-  @Get('/addProduct')
-  @Render(`addProduct`)
-  getAddProductPage() {
-    return { message: 'Hello world' };
-  }
-
+  // need
   @Get('/cart')
   @Render(`cart`)
   getCartPage() {
@@ -46,12 +30,6 @@ export class AppController {
   @Get('/contact')
   @Render(`contact`)
   getContactPage() {
-    return { message: 'Hello world' };
-  }
-
-  @Get('/login')
-  @Render(`login`)
-  getLoginPage() {
     return { message: 'Hello world' };
   }
 }

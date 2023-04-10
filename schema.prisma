@@ -13,7 +13,6 @@ model User {
   secondName  String
   password String
   email    String   @unique
-  DateOfBirth      DateTime?
   orders   Order[]
   role Role
 }
@@ -21,9 +20,17 @@ model User {
 model Order {
   id         Int        @id @default(autoincrement())
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  updatedAt   DateTime? @updatedAt
   user       User?      @relation(fields: [userId], references: [id])
-  userId     Int
+  userId     Int?
+  country   String
+  name      String
+  secondName String
+  email      String
+  address    String
+  postalCode Int
+  city       String
+  phoneNumber String
   products   Product[]  @relation("OrderProduct")
   status    Status
   promocode Promocode?
@@ -42,12 +49,19 @@ model Product {
   id          Int     @id @default(autoincrement())
   name        String
   size        Size
-  description String?
+  description String
   price       Float
-  images      String[]
+  images      Image[]
   orders      Order[] @relation("OrderProduct")
   collection  Collection? @relation(fields: [collectionId], references: [id])
   collectionId Int?
+}
+
+model Image {
+  id        Int     @id @default(autoincrement())
+  imageUrl  String
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
 }
 
 model Collection {

@@ -80,6 +80,7 @@ menu {
 .main {
     flex: 1 1 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -88,6 +89,21 @@ menu {
     width: 36%;
     display: flex;
     flex-wrap: wrap;
+}
+
+#page-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#next, #previous {
+    font-size: 20px;
+    background-color: black;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
 }
 
 .product {
