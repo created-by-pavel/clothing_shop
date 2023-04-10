@@ -1,7 +1,8 @@
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
 
-let currentPage = 1;
+let currentPage = parseInt(window.location.href.split('/').pop());
+
 
 previousButton.addEventListener('click', () => {
   if (currentPage > 1) {
