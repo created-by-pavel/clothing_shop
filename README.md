@@ -1,4 +1,4 @@
-# Free use of render.com has ended so you can only look at the static - https://created-by-pavel.github.io/ITMO_web/
+## Free use of render.com has ended so you can only look at the static - https://created-by-pavel.github.io/ITMO_web/
 
 ## Description
 ![example](https://github.com/created-by-pavel/ITMO_web/blob/master/img/home.png)
