@@ -1,7 +1,10 @@
 
 ## Description
 
-#### Есть User, он может быть 2 типов: админ и обычный. У него есть Orders, в Orders есть Products и есть Promocode. В Products есть Collection 
-
+![example](https://github.com/created-by-pavel/ITMO_web/blob/master/img/home.png)
+![example](https://github.com/created-by-pavel/ITMO_web/blob/master/img/about.png)
+![example](https://github.com/created-by-pavel/ITMO_web/blob/master/img/cart.png)
+![example](https://github.com/created-by-pavel/ITMO_web/blob/master/img/contacts.png)
+![example](https://github.com/created-by-pavel/ITMO_web/blob/master/img/store.png)
 ![example](https://github.com/is-web-y24/created-by-pavel/blob/main/public/img/diagram.png)
 
