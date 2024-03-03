@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = "postgres://shop_database_crbpavel:eP6wftnfErnUbM8c9etOyBQo0LCx9tgi@dpg-cg3fo2t269v3bpa32su0-a.frankfurt-postgres.render.com/shop_database_z7fr"
+  url = "postgres://postgresql_wnoz_user:TmfyOQOONBeNkV8H968ax1vqH6PWmoWC@dpg-cnic5sa1hbls73fhc150-a.frankfurt-postgres.render.com/postgresql_wnoz"
 }
 
 generator client {
