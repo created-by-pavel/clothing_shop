@@ -16,7 +16,7 @@
     <main class="main">
         <div class="form-wrapper">
             <h2>SIGN IN TO YOUR ACCOUNT</h2>
-            <form>
+            <form id="signInForm">
                 <div class="form-item">
                     <label for="email"></label>
                     <input type="email" name="email" required="required" placeholder="Email Address">
@@ -36,7 +36,7 @@
 
         <div class="form-wrapper">
             <h3>REGISTER A NEW ACCOUNT</h3>
-            <form>
+            <form id="loginForm">
                 <div class="form-item">
                     <label for="firstName"></label>
                     <input type="text" name="firstName" required="required" placeholder="First Name">
@@ -62,8 +62,8 @@
                 </div>
             </form>
         </div>
-
     </main>
+  <script src="/js/send_userData.js"></script>
     {{> footer}}
 </div>
 </body>
