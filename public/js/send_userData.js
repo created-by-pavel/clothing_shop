@@ -26,4 +26,4 @@ const submitForm = (formId, url) => {
 };
 
 submitForm('loginForm', 'https://clothing-shop-5n2c.onrender.com/user/login');
-submitForm('signUpForm', 'https://clothing-shop-5n2c.onrender.com//user/signUp');
+submitForm('signUpForm', 'https://clothing-shop-5n2c.onrender.com/user/signUp');
