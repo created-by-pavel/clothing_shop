@@ -56,6 +56,7 @@ const validateForm = () => {
 
 button.addEventListener('click', function (e) {
   e.preventDefault();
+
   if (validateForm()) {
     const formData = new FormData(form);
     const data = {
@@ -73,25 +74,17 @@ button.addEventListener('click', function (e) {
       ...data,
       products: productIds,
     };
-    console.log(JSON.stringify(requestData));
 
-    fetch('https://crbpavel.onrender.com/order/new', {
+    fetch('https://clothing-shop-5n2c.onrender.com/order/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error: while sending data');
-        }
-        console.log('Success: Data was sent');
-        return response.json();
-      })
       .then((data) => {
         console.log('Service response:', data);
-        window.location.replace('https://crbpavel.onrender.com');
+        window.location.replace('https://clothing-shop-5n2c.onrender.com');
       })
       .catch((error) => {
         console.error(error);

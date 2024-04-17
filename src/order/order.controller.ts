@@ -11,17 +11,16 @@ export class OrderController {
 
   @ApiOperation({ summary: 'Render Order Form' })
   @ApiResponse({ status: 200, description: 'Page rendered' })
-  @Get('/order-form')
+  @Get('/orderForm')
   @Render('orderForm.hbs')
   async getOrderForm() {
-    return { message: 'Hello world' };
+    return;
   }
 
   @ApiOperation({ summary: 'Add new Order' })
   @ApiResponse({ status: 200, description: 'Order is added' })
   @Post('/new')
   async addOrder(@Body() newOrder: CreateOrderDto) {
-    console.log(newOrder);
     await this.orderService.createOrder(newOrder);
   }
 

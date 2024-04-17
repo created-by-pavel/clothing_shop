@@ -28,14 +28,14 @@ export class ProductController {
       skip: (currentPage - 1) * pageSize,
       take: pageSize,
     });
-    return { viewData, currentPage: page };
+    return { viewData };
   }
 
   @ApiOperation({ summary: 'Add new Product' })
   @ApiResponse({ status: 200, description: 'Product is added' })
   @Post('/add')
-  async addProduct(@Body() newProduct: CreateProductDto): Promise<Product> {
-    return this.productService.createProduct(newProduct);
+  async addProduct(@Body() newProduct: CreateProductDto) {
+    await this.productService.createProduct(newProduct);
   }
 
   @ApiOperation({ summary: 'Get Product by Id' })
@@ -46,7 +46,8 @@ export class ProductController {
     const viewData = await this.productService.getById({
       id: Number(id),
     });
-    return { viewData };
+    const sizes = await this.productService.getProductSizes(Number(id))
+    return { viewData, sizes };
   }
 
   @ApiOperation({ summary: 'Delete all products' })

@@ -13,27 +13,24 @@
 <body>
 <div id="wrapper">
     {{> header}}
-
     <main class="main">
         <div id="addForm">
-            <form action="#" method="#">
+            <form id= "addProductForm">
                 <div class="addForm__filed">
-                    <label for="productName">product name</label>
-                    <input type="text" id="productName" name="product_name">
+                    <label for="name">product name</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 <div class="addForm__filed">
                     <label for="description">product description</label>
-                    <textarea id="description" name="product_description"></textarea>
+                    <textarea id="description" name="description" required></textarea>
                 </div>
-
                 <div class="addForm__filed">
                     <label for="price">product price</label>
-                    <input type="text" id="price" name="product_price">
+                    <input type="text" id="price" name="price" required>
                 </div>
-
                 <div class="addForm__filed">
-                    <label for="photo">file</label>
-                    <input type="file" id="photo" name=product_photo"/>
+                    <label for="images">images urls</label>
+                    <input type="text" id="images" name="images" required/>
                 </div>
                 <div id="addForm__send-button">
                     <button type="submit">send</button>
@@ -41,7 +38,7 @@
             </form>
         </div>
     </main>
-
+    <script src="/js/send_addProduct_form.js"></script>
     {{> footer}}
 </div>
 </body>

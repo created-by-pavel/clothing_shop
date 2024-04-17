@@ -1,5 +1,5 @@
 const cartBody = document.querySelector('#cart-body');
-const buyButton = document.querySelector('#checkout');
+const checkOut = document.querySelector('#checkout');
 const cartStorage = JSON.parse(localStorage.getItem('products') || '[]');
 const totalPrice = document.querySelector('#total-price');
 const deleteCart = document.querySelector('.delete-cart');
@@ -23,7 +23,8 @@ function drawCart() {
     newCard.innerHTML = `<div class="item">
                            <div class="item__desc">
                                <div class="item__name"><p>${tmp.productName}</p></div>
-                               <div class="item__price"><p>$ ${tmp.price}</p></div>
+                               <div class="item__size"><p>Size: ${tmp.size}</p></div>
+                               <div class="item__price"><p>$${tmp.price}</p></div>
                            </div>
                             <div class="item__photo"><img src=${tmp.imgPath}></div>
                         </div>`;
@@ -65,10 +66,9 @@ function displayConvertedPrice(result) {
     ' = ' + convertedPrice.toLocaleString('ru-RU') + '₽';
 }
 
-buyButton.addEventListener('click', function (e) {
+checkOut.addEventListener('click', function (e) {
   if (cartStorage.length !== 0) {
-    console.log('hello motherfucka');
-    window.location.replace('https://crbpavel.onrender.com/order/order-form'); // https://crbpavel.onrender.com/order
+    window.location.replace('https://clothing-shop-5n2c.onrender.com/order/orderForm');
   } else {
     e.preventDefault();
   }

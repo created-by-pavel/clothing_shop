@@ -13,11 +13,6 @@ export class CreateProductDto {
   })
   description: string;
   @ApiProperty({
-    example: 'M',
-    description: 'Product size',
-  })
-  size: Size;
-  @ApiProperty({
     example: '1999',
     description: 'Product price $',
   })

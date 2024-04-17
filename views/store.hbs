@@ -14,15 +14,15 @@
 <body>
 <div id="wrapper">
     {{> header}}
-
     <main class="main">
         <div id="store-wrapper">
         {{#each viewData}}
           <div class="product">
-            <a href="https://crbpavel.onrender.com/products/{{id}}"><img src="{{images.[0].imageUrl}}" alt="{{name}} Image"></a>
+            <a href="https://clothing-shop-5n2c.onrender.com/products/{{id}}"><img src="{{images.[0].imageUrl}}" alt="{{name}} Image"></a>
           </div>
         {{/each}}
         </div>
+<!--      <img src="https://drive.google.com/thumbnail?id=1mPKdV_6nY2Suu9ElqmG9C70ag_6vGGnV&sz=w1000">-->
         <div class="coords">
             <p>GET.COORDINATES</p>
             <p>GET.ENJOYED</p>
@@ -36,7 +36,7 @@
     </main>
     <script type="text/javascript" src="/js/coordinates.js"></script>
     <script src="/js/next_previous_buttons.js"></script>
-    {{> footer}}
+  {{> footer}}
 </div>
 </body>
 </html>

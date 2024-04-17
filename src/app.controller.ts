@@ -11,25 +11,30 @@ export class AppController {
   @Get()
   @Render('index')
   root() {
-    return { message: 'Hello world' };
+    return;
   }
 
   @Get('/about')
   @Render(`about`)
   getAboutPage() {
-    return { message: 'Hello world' };
+    return;
   }
 
-  // need
   @Get('/cart')
   @Render(`cart`)
   getCartPage() {
-    return { message: 'Hello world' };
+    return;
   }
 
   @Get('/contact')
   @Render(`contact`)
   getContactPage() {
-    return { message: 'Hello world' };
+    return;
+  }
+
+  @Get('/addProduct')
+  @Render(`addProduct`)
+  getAddProductPage() {
+    return;
   }
 }

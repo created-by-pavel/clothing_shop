@@ -1,7 +1,7 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
-import { Prisma, Product } from '@prisma/client';
-import { CreateProductDto } from './dto/create-product.dto';
+import { Injectable } from "@nestjs/common";
+import { PrismaService } from "../prisma/prisma.service";
+import { Prisma, Product, Size } from "@prisma/client";
+import { CreateProductDto } from "./dto/create-product.dto";
 
 type GetProductParams = {
   skip?: number;
@@ -26,6 +26,20 @@ export class ProductService {
     });
   }
 
+  async getProductSizes(productId: number): Promise<Size[]> {
+    const productInventories = await this.prisma.productInventory.findMany({
+      where: {
+        productId: productId,
+        quantity: { gt: 0 }
+      },
+      select: {
+        size: true
+      }
+    });
+
+    return productInventories.map((inventory) => inventory.size);
+  }
+
   async getAll(params: GetProductParams) {
     const { skip, take } = params;
     return this.prisma.product.findMany({
@@ -38,21 +52,29 @@ export class ProductService {
   }
 
   async createProduct(newProduct: CreateProductDto): Promise<Product> {
-    const { name, description, size, price, images } = newProduct;
+    const { name, description, price, images } = newProduct;
+    const items = [
+      { size: Size.S, quantity: 25 },
+      { size: Size.M, quantity: 25 },
+      { size: Size.L, quantity: 25 },
+      { size: Size.XL, quantity: 25 }
+    ];
     return await this.prisma.product.create({
       data: {
         name,
         description,
-        size,
         price,
         images: {
           createMany: {
-            data: images.map((image) => ({
-              imageUrl: image,
-            })),
-          },
+            data: images.map((image) => ({ imageUrl: image }))
+          }
         },
-      },
+        inventories: {
+          createMany: {
+            data: items.map((item) => ({ quantity: item.quantity, size: item.size }))
+          }
+        },
+      }
     });
   }
 

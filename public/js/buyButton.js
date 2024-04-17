@@ -5,7 +5,13 @@ const popupCloseIcon = document.querySelector('.close-popup');
 const imgPath = document.querySelector('.slide-1 > img').src;
 const currentLink = window.location.href;
 const tmp = document.querySelector('#item-body__buy-button > button');
+const sizeButton = document.querySelector("#item-body__size-button select");
 const productName = document.querySelector('#item-body__description > span');
+let size = '';
+
+sizeButton.addEventListener('change', function() {
+  size = sizeButton.value;
+});
 
 buyButton.addEventListener('click', function (e) {
   let price = tmp.getAttribute('hover-text').slice(0, -1);
@@ -13,8 +19,9 @@ buyButton.addEventListener('click', function (e) {
   let product = JSON.stringify({
     productName: productName.textContent,
     price: price,
+    size: size,
     imgPath: imgPath,
-    id: id,
+    id: id
   });
   let products = JSON.parse(localStorage.getItem('products') || '[]');
   products.push(product);
@@ -23,13 +30,7 @@ buyButton.addEventListener('click', function (e) {
   e.preventDefault();
 });
 
-// popupCloseIcon.addEventListener('click', function (e) {
-//     popupClose(popupCloseIcon.closest('.popup'));
-//     e.preventDefault();
-// });
-//
 function popupOpen(currentPopup) {
-  console.log('fdsfsa');
   currentPopup.classList.add('open');
   currentPopup.addEventListener('click', function (e) {
     if (!e.target.closest('.popup__content')) {
