@@ -21,7 +21,7 @@ export class UserService {
         secondName,
         email,
         password,
-        orders: null,
+        orders: undefined,
         role: Role.USER
       }
     });
