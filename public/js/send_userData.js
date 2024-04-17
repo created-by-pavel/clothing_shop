@@ -4,10 +4,7 @@ const submitForm = (formId, url) => {
     e.preventDefault();
 
     const formData = new FormData(form);
-    const data = {
-      email: formData.get("email"),
-      password: formData.get("password"),
-    };
+    const data = Object.fromEntries(formData.entries());
     console.log(JSON.stringify(data));
 
     fetch(url, {
@@ -28,5 +25,5 @@ const submitForm = (formId, url) => {
   });
 };
 
-submitForm('loginForm', 'https://clothing-shop-5n2c.onrender.com/login');
-submitForm('signInForm', 'https://clothing-shop-5n2c.onrender.com/signUp');
+submitForm('loginForm', 'https://clothing-shop-5n2c.onrender.com/user/login');
+submitForm('signInForm', 'https://clothing-shop-5n2c.onrender.com//user/signUp');
