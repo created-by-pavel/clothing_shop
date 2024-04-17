@@ -1,6 +1,12 @@
 const button = document.getElementById('submitButton');
 const form = document.getElementById('addProductForm');
 
+function transformImageURL(imageURL) {
+  const fileId = imageURL.split("/")[5];
+  const newURL = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
+  return newURL;
+}
+
 form.addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -9,11 +15,11 @@ form.addEventListener("submit", function(e) {
     name: formData.get("name"),
     description: formData.get("description"),
     price: parseFloat(formData.get("price")),
-    images: formData.get("images").split(",")
+    images: formData.get("images").split(",").map(imageURL => transformImageURL(imageURL.trim()))
   };
   console.log(JSON.stringify(data));
 
-  fetch("http://localhost:81/products/add", {
+  fetch("https://clothing-shop-5n2c.onrender.com/products/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

@@ -1,6 +1,5 @@
 const nextButton = document.querySelector('#next');
 const previousButton = document.querySelector('#previous');
-
 let currentPage = parseInt(window.location.href.split('/').pop());
 
 
