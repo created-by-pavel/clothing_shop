@@ -20,6 +20,12 @@ export class AppController {
     return;
   }
 
+  @Get('/login')
+  @Render(`login`)
+  getLoginPage() {
+    return;
+  }
+
   @Get('/cart')
   @Render(`cart`)
   getCartPage() {

@@ -86,26 +86,31 @@ menu {
 .form-wrapper {
     margin: 3em auto;
     min-width: 350px;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
 }
 
 h2,h3 {
     font-size: 1em;
-    text-align: left;
+    text-align: center;
     padding: 1em 0;
     color: #ffffff;
 }
 
 .form-item {
     margin-bottom: 0.75em;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
 }
 
 .form-item input {
     background: #fafafa;
-    border-radius: 3px;
-    font-size: 1em;
-    height: 40px;
-    width: 100%;
+    font-size: 0.7em;
+    height: 30px;
+    width: 90%;
+    padding-left: 10px;
 }
 
 .form-item input:focus {
@@ -119,7 +124,7 @@ h2,h3 {
 }
 
 .button-panel .button {
-    background: #000000;
+    background: red;
     border: none;
     color: #ffffff;
     font-weight: bold;
@@ -131,11 +136,6 @@ h2,h3 {
     text-transform: uppercase;
     transition: background 0.3s ease-in-out;
     width: 100%;
-}
-
-.button:hover {
-    background: red;
-    color: #ffffff;
 }
 
 .form-footer {
