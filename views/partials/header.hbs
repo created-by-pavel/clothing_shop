@@ -8,8 +8,8 @@
       <li class="nav-item"><a href="https://clothing-shop-5n2c.onrender.com/products/page/1" class="nav-link">Store</a></li>
       <li class="nav-item"><a href="https://clothing-shop-5n2c.onrender.com/about" class="nav-link">About us</a></li>
       <li class="nav-item"><a href="https://clothing-shop-5n2c.onrender.com/contact" class="nav-link">Contacts</a></li>
-      <li class="nav-item"><a id="profile-link" href="https://clothing-shop-5n2c.onrender.com/user/profile" class="nav-link">Profile</a></li>
-      <li class="nav-item"><a id="login-link" href="https://clothing-shop-5n2c.onrender.com/login" class="nav-link">Login</a></li>
+      <li id="profile-li" class="nav-item"><a id="profile-link" href="https://clothing-shop-5n2c.onrender.com/user/profile" class="nav-link">Profile</a></li>
+      <li id="login-li" class="nav-item"><a href="https://clothing-shop-5n2c.onrender.com/login" class="nav-link">Login</a></li>
       <li class="nav-item"><a href="https://clothing-shop-5n2c.onrender.com/cart" class="nav-link">
         <img src="https://clothing-shop-5n2c.onrender.com/img/cart.png" width="30px"></a>
       </li>
@@ -25,15 +25,16 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const userId = localStorage.getItem('userId');
-    const loginLink = document.getElementById("login-link");
     const profileLink = document.getElementById("profile-link");
+    const loginLi = document.getElementById("login-li");
+    const profileLi = document.getElementById("profile-li");
     if (userId) {
-      loginLink.style.display = "none";
-      profileLink.style.display = "block";
+      loginLi.style.display = "none";
+      profileLi.style.display = "block";
       profileLink.href = `https://clothing-shop-5n2c.onrender.com/user/profile/${encodeURIComponent(userId)}`;
     } else {
-      loginLink.style.display = "block";
-      profileLink.style.display = "none";
+      loginLi.style.display = "block";
+      profileLi.style.display = "none";
     }
   });
 </script>
