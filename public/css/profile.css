@@ -101,6 +101,7 @@ menu {
 
 #right li {
     margin-top: 2%;
+    text-decoration: underline;
 }
 
 #top {
@@ -161,6 +162,14 @@ menu {
 
 
 @media screen and (max-width: 796px) {
+    #top {
+        display: block;
+    }
+
+    #top p{
+        margin-bottom: 5px;
+    }
+
     .toggle-menu {
         display: block;
     }
