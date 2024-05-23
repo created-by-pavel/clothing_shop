@@ -2,6 +2,16 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateOrderDto {
   @ApiProperty({
+    example: 'ID',
+    description: "user id"
+  })
+  userId: number;
+  @ApiProperty({
+    example: '1999',
+    description: 'Total cost',
+  })
+  totalCost: number
+  @ApiProperty({
     example: 'Russia',
     description: 'Order country',
   })

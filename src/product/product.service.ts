@@ -59,7 +59,7 @@ export class ProductService {
       { size: Size.L, quantity: 25 },
       { size: Size.XL, quantity: 25 }
     ];
-    return await this.prisma.product.create({
+    return this.prisma.product.create({
       data: {
         name,
         description,
@@ -85,13 +85,8 @@ export class ProductService {
     return this.prisma.product.update(params);
   }
 
-  async deleteProduct(where: Prisma.ProductWhereUniqueInput): Promise<Product> {
-    return this.prisma.product.delete({ where });
-  }
-
   async deleteProducts() {
     await this.prisma.$transaction(async (prisma) => {
-      // Delete all images associated with each product
       const products = await prisma.product.findMany();
       for (const product of products) {
         await prisma.image.deleteMany({
@@ -99,7 +94,6 @@ export class ProductService {
         });
       }
 
-      // Delete all products
       await prisma.product.deleteMany();
     });
   }

@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Render } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Render } from "@nestjs/common";
 import { OrderService } from './order.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateOrderDto } from './dto/create-order.dto';
@@ -17,27 +17,22 @@ export class OrderController {
     return;
   }
 
+  @ApiOperation({ summary: 'Get all orders' })
+  @ApiResponse({ status: 200, description: 'Page rendered' })
+  @Get('/all/:userId')
+  @Render('orderList.hbs')
+  async getOrders(@Param('userId') userId: string) {
+    const userIdNumber = parseInt(userId, 10);
+    const viewData = await this.orderService.getAll({userId: userIdNumber});
+    const length = viewData.length
+    return { viewData, length };
+  }
+
   @ApiOperation({ summary: 'Add new Order' })
   @ApiResponse({ status: 200, description: 'Order is added' })
   @Post('/new')
   async addOrder(@Body() newOrder: CreateOrderDto) {
     await this.orderService.createOrder(newOrder);
-  }
-
-  @ApiOperation({ summary: 'Get all orders' })
-  @ApiResponse({ status: 200, description: 'Get all orders json form' })
-  @Get('/all-orders')
-  async getProducts(): Promise<Order[] | null> {
-    return await this.orderService.getAll({
-      take: 16,
-    });
-  }
-
-  @ApiOperation({ summary: 'Delete all orders' })
-  @ApiResponse({ status: 200, description: 'Orders are deleted' })
-  @Delete('/')
-  async deleteAllProducts() {
-    await this.orderService.deleteOrders();
   }
 
   // @ApiOperation({ summary: 'Get order by id' })

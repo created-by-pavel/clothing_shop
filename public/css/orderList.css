@@ -5,17 +5,17 @@
     box-sizing: border-box;
 }
 
+#wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 html, body {
     background-color: black;
     height: 100%;
     font-family: Courier, monospace;
     font-size: 16px;
-}
-
-#wrapper {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
 a, li {
@@ -78,70 +78,43 @@ menu {
 }
 
 .main {
-    margin-top: 20px;
     flex: 1 1 auto;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-bottom: 20px;
     color: #FFFFFF;
 }
 
-#left {
-    font-size: 0.8em;
-    width: 55%;
-    padding: 0 10px;
-}
-
-#right {
-    display: flex;
-    margin-top: 6%;
-    justify-content: right;
-    font-size: 0.8em;
-    width:45%;
-    padding-right: 1%;
-}
-
-#right li {
-    margin-top: 2%;
-}
-
-#top {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15%;
-}
-
-.dashboard {
-    margin: 3% 2%;
-    height: 300px;
-    border-radius: 15px;
-    background-color: red;
-    color: #000000;
-}
-
-.dashboard-title {
-    text-align: center;
-    font-size: 20px;
-}
-
-.user-table {
-    display: flex;
-    height: 75%;
+.orders-wrapper {
     background-color: #FFFFFF;
-}
-
-.user-info {
-    margin: auto;
+    color: #000000;
+    width: 50%;
     display: flex;
     flex-direction: column;
-    font-size: 15px;
+    flex-wrap: wrap;
 }
 
-.user-data {
-    padding: 10px;
-    border-bottom: #000000 solid 2px;
+.order li{
+    color: black;
+    margin-right: 7px;
 }
 
-#helloMessage p {
-    margin-top: 5%;
+.order ul {
+    display: flex;
+}
+
+.order img {
+    width: 100px;
+}
+
+.order {
+    padding: 20px;
+    border-bottom: #8E060D solid 2px;
 }
 
 .soc-nets {
@@ -159,8 +132,10 @@ menu {
     height: 45px;
 }
 
-
 @media screen and (max-width: 796px) {
+    .orders-wrapper {
+        width: 500px;
+    }
     .toggle-menu {
         display: block;
     }
@@ -202,12 +177,6 @@ menu {
         left: 0;
     }
 
-    .slider {
-        width: 100%;
-        height: 90vh;
-        flex-flow: column;
-    }
-
     .item {
         width: 100%;
         flex-basis: 100%;
@@ -216,15 +185,4 @@ menu {
     .item:hover {
         flex-basis: 100%;
     }
-
-    .dashboard {
-        width: 90vw;
-    }
-
-    .coords {
-        display: none;
-    }
 }
-
-
-

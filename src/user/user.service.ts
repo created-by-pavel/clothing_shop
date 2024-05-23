@@ -1,21 +1,27 @@
-import { PrismaService } from '../prisma/prisma.service';
-import { User, Prisma } from '@prisma/client';
-import { Injectable } from '@nestjs/common';
+import { PrismaService } from "../prisma/prisma.service";
+import { Prisma, Role } from "@prisma/client";
+import { Injectable } from "@nestjs/common";
 import { CreateUserDto } from "./dto/create-user.dto";
-import {Role} from '@prisma/client';
 import { LoginUserDTO } from "./dto/login-user.dto";
+import { InfoUserDto } from "./dto/info-user.dto";
 
 @Injectable()
 export class UserService {
   constructor(private prisma: PrismaService) {}
 
-  async getById(where: Prisma.UserWhereUniqueInput): Promise<User | null> {
-    return this.prisma.user.findUnique({ where });
+  async getById(where: Prisma.UserWhereUniqueInput): Promise<InfoUserDto | null> {
+    const user = await this.prisma.user.findUnique({ where });
+    return {
+      name: user.name,
+      secondName: user.secondName,
+      email: user.email,
+      role: user.role.valueOf(),
+    };
   }
 
-  async createUser(newUser: CreateUserDto): Promise<User> {
+  async createUser(newUser: CreateUserDto): Promise<number> {
     const { name, secondName, email, password, birthday} = newUser;
-    return await this.prisma.user.create({
+    const user = await this.prisma.user.create({
       data: {
         name,
         secondName,
@@ -25,9 +31,10 @@ export class UserService {
         role: Role.USER
       }
     });
+    return user.id.valueOf();
   }
 
-  async loginUser(userData: LoginUserDTO): Promise<User> {
+  async loginUser(userData: LoginUserDTO): Promise<number> {
     const { email, password } = userData;
     const user = await this.prisma.user.findUnique({
       where: {
@@ -41,6 +48,6 @@ export class UserService {
     if (!passwordMatches) {
       throw new Error('Incorrect password');
     }
-    return user;
+    return user.id.valueOf();
   }
 }

@@ -13,10 +13,13 @@ const submitForm = (formId, url) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    }).then((responseData) => {
+    })
+      .then(response => response.json())
+      .then((responseData) => {
       console.log("Service response:", responseData);
-      if (responseData && responseData.ok) {
+      if (responseData && responseData.userId) {
         console.log('logged in');
+        localStorage.setItem('userId', responseData.userId);
         window.location.replace("https://clothing-shop-5n2c.onrender.com");
       }
     }).catch((error) => {

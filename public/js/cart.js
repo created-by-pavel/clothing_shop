@@ -67,7 +67,7 @@ function displayConvertedPrice(result) {
 }
 
 checkOut.addEventListener('click', function (e) {
-  if (cartStorage.length !== 0) {
+  if (cartStorage.length !== 0 && localStorage.getItem('userId')) {
     window.location.replace('https://clothing-shop-5n2c.onrender.com/order/orderForm');
   } else {
     e.preventDefault();

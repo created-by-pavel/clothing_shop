@@ -9,6 +9,7 @@ import * as swaggerUi from 'swagger-ui-express';
 import * as express from 'express';
 import * as path from 'path';
 import { PrismaService } from './prisma/prisma.service';
+import handlebarsHelpers from './helpers';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -34,6 +35,7 @@ async function bootstrap() {
   app.setViewEngine('hbs');
   app.useGlobalInterceptors(new ResponseTimeInterceptor());
   hbs.registerPartials(join(__dirname, '..', '/views/partials'));
+  hbs.registerHelper('ifEquals', handlebarsHelpers.ifEquals);
   await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

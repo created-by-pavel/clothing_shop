@@ -25,21 +25,44 @@
           <p>YOUR PERSONAL INFORMATION</p>
           <span><a href="#">Edit</a> / <a href="#">Change Password</a></span>
         </div>
-        <div id="dashboard">
+        <div class="dashboard">
+          <div class="dashboard-title">
+            <p><b>HELLO</b></p>my name is.</p>
+          </div>
+          <div class="user-table">
+            <div class="user-info">
+              <div class="user-data"><p>Name</p></div>
+              <div class="user-data"><p>Second Name</p></div>
+              <div class="user-data"><p>Email</p></div>
+            </div>
+            <div class="user-info">
+              <div class="user-data"><p>{{viewData.name}}</p></div>
+              <div class="user-data"><p>{{viewData.secondName}}</p></div>
+              <div class="user-data"><p>p{{viewData.email}}</p></div>
+              {{#if viewData.role}}
+                {{#ifEquals viewData.role "ADMIN"}}
+                  <div class="user-data"><p>Admin</p></div>
+                {{/ifEquals}}
+              {{/if}}
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div id="right">
       <ul>
-        <li><a href="#">YOUR PERSONAL DASHBOARD</a></li>
-        <li><a href="#">ADDRESS BOOK</a></li>
-        <li><a href="#">ORDERS AND RETURNS</a></li>
-        <li><a href="#">PAYMENT METHODS</a></li>
-        <li><a href="#">LOG OUT</a></li>
+        {{#if viewData.role}}
+          {{#ifEquals viewData.role "ADMIN"}}
+            <li><a href="https://clothing-shop-5n2c.onrender.com/addProduct">ADD PRODUCT</a></li>
+          {{/ifEquals}}
+        {{/if}}
+        <li><a id="orders-link" href="https://clothing-shop-5n2c.onrender.com/order/all">ORDERS AND RETURNS</a></li>
+        <li><a id="log-out-link" href="https://clothing-shop-5n2c.onrender.com/">LOG OUT</a></li>
       </ul>
     </div>
   </main>
   {{> footer}}
 </div>
+<script src="/js/profile.js"></script>
 </body>
 </html>

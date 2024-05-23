@@ -4,6 +4,11 @@ const cartStorage = JSON.parse(localStorage.getItem('products') || '[]');
 const products = cartStorage.map((product) => JSON.parse(product));
 const productIds = products.map((product) => parseInt(product.id, 10));
 
+const totalCost = products.reduce((total, product) => {
+  const price = parseFloat(product.price.trim());
+  return total + price;
+}, 0);
+
 const isEmpty = (value) => {
   return !value.trim();
 };
@@ -70,9 +75,12 @@ button.addEventListener('click', function (e) {
       phoneNumber: formData.get('phone'),
     };
 
+    const userId = parseInt(localStorage.getItem('userId'), 10);
     const requestData = {
       ...data,
+      userId: userId,
       products: productIds,
+      totalCost: totalCost,
     };
 
     fetch('https://clothing-shop-5n2c.onrender.com/order/new', {
@@ -85,6 +93,7 @@ button.addEventListener('click', function (e) {
       .then((data) => {
         console.log('Service response:', data);
         window.location.replace('https://clothing-shop-5n2c.onrender.com');
+        localStorage.removeItem('products');
       })
       .catch((error) => {
         console.error(error);
