@@ -62,9 +62,8 @@ a, li {
 }
 
 .logo {
-    background-color: red;
     cursor: pointer;
-    margin-right: 2%;
+    margin-right: 16%;
 }
 
 h1 {
